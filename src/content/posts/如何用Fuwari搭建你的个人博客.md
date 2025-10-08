@@ -1,48 +1,44 @@
 ---
 title: 如何用Fuwari搭建你的个人博客
 published: 2025-10-07
-description: ''
-image: ''
-tags: []
-category: ''
+description: 'Fuwari是在GitHub上基于Astro开发的静态博客模板开源项目'
+image: 'background\bk.png'
+tags: [Fuwari]
+category: '教程'
 draft: false 
 lang: 'cn'
 ---
 
-# [Fuwari](https://github.com/saicaca/fuwari) 是在GitHub上开源的项目，是基于 [Astro](https://astro.build/) 开发的静态博客模板(懒人福利)
+
 
     
 
-### 在`windows`本地部署你的个人博客，你需要在本地拥有以下环境:
+### 在`windows`本地部署你的个人博客，你需要在本地拥有以下环境
 
 1. 服务端 JavaScript 环境
 
 >  Node.js 
 
-    
-
 2. 包管理工具
 
 > npm
-
-    
 
 3. 版本控制工具
 
 > git
 
-##### 如何搭建环境：
+### 如何搭建环境
 
 推荐使用`winget`包管理工具安装`node.js`，`npm`和`git`
 
 ```bash
+# 用winget搜索工具找到要安装的发行版
 winget search node.js
 winget search npm 
-# 用winget搜索工具找到要安装的发行版
+# 下载需要的版本
 winget install (需要的node.js版本的ID)
 winget install (需要的pnpm版本的ID)
-winget insatll 
-# 下载需要的版本
+winget install (需要的git版本的ID)
 ```
 
 检查本地环境是否搭建成功
@@ -54,6 +50,8 @@ winget insatll
 node -v
 # 检查pnpm
 npm -v
+# 检查git
+git -v
 ```
 
 效果图如下：
@@ -67,14 +65,13 @@ npm -v
 2. 全局安装pnpm
    
    ```bash
-   # 在fuwari项目根目录下
    npm install -g pnpm
    ```
 
 3. 现在你可以预览blog模板了
    
    ```bash
-   # 在命令行输入以下代码
+   # 在fuwari项目根目录命令行下
    pnpm -dev
    #如果想自动打开浏览器则输入
    pnpm -dev --open
@@ -227,8 +224,59 @@ npm -v
    
    ---
 
-6. 使用[cloudflare](https://dash.cloudflare.com/)上的pages服务展示个人博客网页
+6. 使用[cloudflare](https://dash.cloudflare.com/)上的pages服务展示个人博客网页（必须要拥有一个域名，可以选择去域名服务商购买）
+   
+   > notion:如果只是想在本地自己管理，不需要向外界展示，可以跳过步骤6
+   
+   进入[cloudflare](https://dash.cloudflare.com/)官网，注册一个账号，在左侧菜单中找到`Worker & Pages`服务
+   
+   ![](assets/images/2025-10-08-14-08-50-image.png)
+   
+   找到图中页面后点击`Import an existing Git repository`选项的`Get started`,然后跟随指引与GitHub建立连接
+   
+   ![](assets/images/2025-10-08-14-12-24-image.png)
+   
+   最后根据指示将你域名的DNS服务器修改为cloudflare中提供的两个DNS服务器，这样，cloudflare就可以管理你的域名了
 
 7. 丰富你的个人博客吧！！
    
-   到现在，你的个人博客已经完成了，只需要在本地编写博客后，提交到GitHub上，cloudflare就可以自动同步GitHub上的内容了。
+   到现在，你的个人博客已经完成了，只需要在本地编写博客后，提交到GitHub上，cloudflare就可以自动同步GitHub上的内容了
+
+
+
+### 扩展修改
+
+##### 将网站的`favicon`图标（即网站图标）修改
+
+推荐使用[favicon.io](https://favicon.io/)进行favicon图标的制作，转换格式后，你会得到一系列尺寸的png图片，将其替换掉博客根目录中public\favicon路径下的一系列png图片，并将src\constants路径下的icon.ts文件修改，样例如下：
+
+```ts
+/***************************以下内容为个人修改***************************/
+
+import type { Favicon } from "@/types/config.ts";
+
+export const defaultFavicons: Favicon[] = [
+	{
+        src: "favicon-light-16.png",
+        theme: "light",
+        sizes: "16x16",
+    },
+	{
+        src: "favicon-light-32.png",
+        theme: "light",
+        sizes: "32x32",
+    },
+    {
+        src: "favicon-light-192.png",
+        theme: "light",
+        sizes: "192x192",
+    },
+	{
+		src: "/favicon/favicon-light-512.png",
+		theme: "dark",
+		sizes: "512x512",
+	},
+];
+```
+
+正确修改了以上文件后，就可以看到网站的图标修改成功了
