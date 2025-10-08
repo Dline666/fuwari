@@ -48,24 +48,29 @@
 import type { Favicon } from "@/types/config.ts";
 
 export const defaultFavicons: Favicon[] = [
-	{
-        src: "favicon-light-16.png",
-        theme: "light",
-        sizes: "16x16",
-    },
-	{
-        src: "favicon-light-32.png",
-        theme: "light",
-        sizes: "32x32",
-    },
+	// {
+    //     src: "favicon-light-16.png",
+    //     theme: "light",
+    //     sizes: "16x16",
+    // },
+	// {
+    //     src: "favicon-light-32.png",
+    //     theme: "light",
+    //     sizes: "32x32",
+    // },
+    // {
+    //     src: "favicon-light-192.png",
+    //     theme: "light",
+    //     sizes: "192x192",
+    // },
+	// {
+	// 	src: "/favicon/favicon-light-512.png",
+	// 	theme: "dark",
+	// 	sizes: "512x512",
+	// },
     {
-        src: "favicon-light-192.png",
-        theme: "light",
-        sizes: "192x192",
-    },
-	{
-		src: "/favicon/favicon-light-512.png",
-		theme: "dark",
-		sizes: "512x512",
+    src: "/favicon/favicon.ico",
+		theme: "light",
+		sizes: "32x32",
 	},
 ];

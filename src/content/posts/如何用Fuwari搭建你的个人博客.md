@@ -9,8 +9,6 @@ draft: false
 lang: 'cn'
 ---
 
-
-
     
 
 ### 在`windows`本地部署你的个人博客，你需要在本地拥有以下环境
@@ -242,13 +240,11 @@ git -v
    
    到现在，你的个人博客已经完成了，只需要在本地编写博客后，提交到GitHub上，cloudflare就可以自动同步GitHub上的内容了
 
-
-
 ### 扩展修改
 
 ##### 将网站的`favicon`图标（即网站图标）修改
 
-推荐使用[favicon.io](https://favicon.io/)进行favicon图标的制作，转换格式后，你会得到一系列尺寸的png图片，将其替换掉博客根目录中public\favicon路径下的一系列png图片，并将src\constants路径下的icon.ts文件修改，样例如下：
+推荐使用[favicon.io](https://favicon.io/)和[在线抠图软件](https://www.remove.bg/zh)（用于制作透明贴图）进行favicon图标的制作，转换格式后，你会得到一系列尺寸的png图片，将其替换掉博客根目录中public\favicon路径下的一系列png图片，并将src\constants路径下的icon.ts文件修改，样例如下：
 
 ```ts
 /***************************以下内容为个人修改***************************/
@@ -256,25 +252,10 @@ git -v
 import type { Favicon } from "@/types/config.ts";
 
 export const defaultFavicons: Favicon[] = [
-	{
-        src: "favicon-light-16.png",
-        theme: "light",
-        sizes: "16x16",
-    },
-	{
-        src: "favicon-light-32.png",
-        theme: "light",
-        sizes: "32x32",
-    },
     {
-        src: "favicon-light-192.png",
-        theme: "light",
-        sizes: "192x192",
-    },
-	{
-		src: "/favicon/favicon-light-512.png",
-		theme: "dark",
-		sizes: "512x512",
+    src: "/favicon/favicon.ico",
+		theme: "light",
+		sizes: "32x32",
 	},
 ];
 ```
