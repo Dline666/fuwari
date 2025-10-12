@@ -31,14 +31,10 @@ winget search git
 winget show Git.Git
 ```
 
-
-
 ```shell
 # 安装软件
 winget install Git.Git
 ```
-
-
 
 # 修改winget配置
 

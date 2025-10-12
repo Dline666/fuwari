@@ -254,9 +254,9 @@ import type { Favicon } from "@/types/config.ts";
 export const defaultFavicons: Favicon[] = [
     {
     src: "/favicon/favicon.ico",
-		theme: "light",
-		sizes: "32x32",
-	},
+        theme: "light",
+        sizes: "32x32",
+    },
 ];
 ```
 
