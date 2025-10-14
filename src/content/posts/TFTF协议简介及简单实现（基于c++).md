@@ -3,8 +3,8 @@ title: TFTF协议简介及简单实现（基于c++)
 published: 2025-10-10
 description: ''
 image: ''
-tags: []
-category: ''
+tags: [TFTP]
+category: '计算机网络'
 draft: false 
 lang: ''
 ---
