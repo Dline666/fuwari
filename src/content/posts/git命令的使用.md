@@ -5,7 +5,7 @@ description: '分布式代码管理工具git的使用'
 image: ''
 tags: [git]
 category: '教程'
-draft: false 
+draft: false
 lang: 'cn'
 ---
 
